@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+
+
+{%block head%}
+
+{%endblock%}
+
+
+{%block content%}
+<h3>BookMark!</h3> 
+<button><a href="{%url 'create'%}"">Create!</a></button>
+<br>
+<hr>
+<div>
+    {%for bookmark in bookmarks%}
+    <a href="{{bookmark.site_name}}">{{bookmark.site_name}}</a>
+    <br>
+    {{bookmark.site_url}}
+    <br>
+    <button><a href="{%url 'edit' bookmark.id%}">Edit!</a></button>
+    <button><a href="{%url 'delete' bookmark.id%}">Delete!</a></button>
+    <hr>
+    {%endfor%}
+</div>
+{%endblock%}
